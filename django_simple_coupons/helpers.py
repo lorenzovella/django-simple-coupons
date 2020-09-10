@@ -1,9 +1,12 @@
 import string
 import random
-import clientflow.app.models.Cliente as usermodel
-
 from django.conf import settings
 
+try:
+    from clientflow.app.models import Cliente as usermodel
+except:
+    pass
+    
 def get_coupon_code_length(length=12):
     return settings.DSC_COUPON_CODE_LENGTH if hasattr(settings, 'DSC_COUPON_CODE_LENGTH') else length
 
