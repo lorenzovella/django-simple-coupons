@@ -3,16 +3,16 @@ import random
 from django.conf import settings
 
 try:
-    from clientflow.app.models import Cliente as usermodel
+    from clientflow.app.models import Cliente
 except:
     pass
-    
+
 def get_coupon_code_length(length=12):
     return settings.DSC_COUPON_CODE_LENGTH if hasattr(settings, 'DSC_COUPON_CODE_LENGTH') else length
 
 
 def get_user_model():
-    return usermodel
+    return Cliente
 
 
 def get_random_code(length=12):
