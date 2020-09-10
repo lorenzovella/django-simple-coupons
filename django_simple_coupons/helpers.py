@@ -1,7 +1,6 @@
 import string
 import random
 from django.conf import settings
-
 try:
     from clientflow.app.models import Cliente
 except:
@@ -12,8 +11,10 @@ def get_coupon_code_length(length=12):
 
 
 def get_user_model():
-    return Cliente
-
+    try:
+        return Cliente
+    except:
+        return "app.Cliente"
 
 def get_random_code(length=12):
     length = get_coupon_code_length(length=length)
