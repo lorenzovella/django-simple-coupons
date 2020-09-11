@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('all_users', models.BooleanField(default=False, verbose_name='All users?')),
-                ('users', models.ManyToManyField(blank=True, to=settings.AUTH_USER_MODEL, verbose_name='Users')),
+                ('users', models.ManyToManyField(blank=True, to='app.Cliente', verbose_name='Users')),
             ],
             options={
                 'verbose_name': 'Allowed User Rule',
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('times_used', models.IntegerField(default=0, editable=False, verbose_name='Times used')),
                 ('coupon', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_simple_coupons.Coupon', verbose_name='Coupon')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='User')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.Cliente', verbose_name='User')),
             ],
             options={
                 'verbose_name': 'Coupon User',
